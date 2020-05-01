@@ -38,5 +38,19 @@ public class Player {
 	public void update() {
 		x += this.xVel * this.spd;
 		y += this.yVel * this.spd;
+		
+		// X boundaries //
+		if (x < 0) {
+			x = 0;
+		} else if (x > Game.WIDTH - this.size) {
+			x = Game.WIDTH - this.size;
+		}
+		
+		// Y boundaries //
+		if (y < 0) {
+			y = 0;
+		} else if (y > Game.HEIGHT - this.size) {
+			y = Game.HEIGHT - this.size;
+		}
 	}
 }

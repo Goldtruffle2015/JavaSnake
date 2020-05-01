@@ -40,7 +40,6 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	// -- Functions -- //
-	
 	private void initialize() {
 		// Initialize player
 		player = new Player(Color.green);	// Creates a white snake
