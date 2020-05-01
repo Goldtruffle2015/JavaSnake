@@ -113,9 +113,10 @@ public class Game extends Canvas implements Runnable {
 
 	private void update() {
 		// Player //
-		player.update();
+		player.update(target);
 		
 		// Target //
+		target.update(player);
 	}
 
 	public void start() {

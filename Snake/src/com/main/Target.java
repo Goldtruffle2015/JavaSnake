@@ -21,4 +21,11 @@ public class Target {
 		g.setColor(this.color);
 		g.fillOval(this.x, this.y, this.size, this.size);
 	}
+	
+	public void update(Player p) {
+		if (this.x == p.getx() && this.y == p.gety()) {	// When the snake intersects the target
+			this.x = (int) ((Math.round(Math.random() * 31.0)) * 36);	// Set random x-coordinate
+			this.y = (int) ((Math.round(Math.random() * 18.0)) * 36);	// Set random y-coordinate
+		}
+	}
 }

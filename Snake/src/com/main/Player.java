@@ -29,13 +29,22 @@ public class Player {
 		this.yVel = var;
 	}
 	
+	// -- Getters -- //
+	public int getx() {
+		return this.x;
+	}
+	
+	public int gety() {
+		return this.y;
+	}
+	
 	// -- Methods -- //
 	public void draw(Graphics g) {
 		g.setColor(this.color);
 		g.fillRect(this.x, this.y, this.size, this.size);
 	}
 	
-	public void update() {
+	public void update(Target t) {
 		x += this.xVel * this.spd;
 		y += this.yVel * this.spd;
 		
