@@ -20,6 +20,15 @@ public class Player {
 		this.yVel = 0;
 	}
 	
+	// -- Setters -- //
+	public void setxVel(int var) {
+		this.xVel = var;
+	}
+	
+	public void setyVel(int var) {
+		this.yVel = var;
+	}
+	
 	// -- Methods -- //
 	public void draw(Graphics g) {
 		g.setColor(this.color);

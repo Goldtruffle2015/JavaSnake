@@ -8,7 +8,6 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
@@ -34,6 +33,10 @@ public class Game extends Canvas implements Runnable {
 		
 		// -- Create the window -- //
 		new Window("Snake by John Yu", this);
+		
+		// -- key Listener -- //
+		this.addKeyListener(new KeyInput(player));
+		this.setFocusable(true);
 	}
 	
 	// -- Functions -- //
