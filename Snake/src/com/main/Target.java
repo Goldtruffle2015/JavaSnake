@@ -16,6 +16,17 @@ public class Target {
 		this.y = (int) ((Math.round(Math.random() * 18.0)) * 36);
 	}
 	
+	// -- Setter -- //
+	
+	// -- Getter -- //
+	public int getx() {
+		return this.x;
+	}
+	
+	public int gety() {
+		return this.y;
+	}
+	
 	// -- Methods -- //
 	public void draw(Graphics g) {
 		g.setColor(this.color);
