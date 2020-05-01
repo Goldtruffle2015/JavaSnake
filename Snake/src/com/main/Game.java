@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable {
 	
 	private void initialize() {
 		// Initialize player
-		player = new Player(Color.white);	// Creates a white snake
+		player = new Player(Color.green);	// Creates a white snake
 		
 		// Initialize target
 		target = new Target(Color.white);	// Creates a white target
@@ -59,15 +59,15 @@ public class Game extends Canvas implements Runnable {
 		// game timer
 		
 		long lastTime = System.nanoTime();
-		double amountOfTicks = 60.0;
-		double ns = 1000000000 / amountOfTicks;
-		double delta = 0;
+		double amountOfTicks = 3.0;	// FPS
+		double ns = 1000000000 / amountOfTicks;	// Nanoseconds per tick to get specified FPS (60)
+		double delta = 0;	// Keeps track of the number of ticks passed
 		long timer = System.currentTimeMillis();
 		int frames = 0;
 		// Looping starts here //
 		while (running) {	
 			long now = System.nanoTime();
-			delta +=(now - lastTime) / ns;
+			delta += (now - lastTime) / ns;
 			lastTime = now;
 			while (delta >= 1) {
 				update();	// Updates the sprites
@@ -78,7 +78,6 @@ public class Game extends Canvas implements Runnable {
 			
 			if (System.currentTimeMillis() - timer < 1000) {
 				timer += 1000;
-				System.out.println("FPS: " + frames);
 				frames = 0;
 			}
 		}
@@ -112,6 +111,7 @@ public class Game extends Canvas implements Runnable {
 
 	private void update() {
 		// Player //
+		player.update();
 		
 		// Target //
 	}

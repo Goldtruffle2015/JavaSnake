@@ -19,6 +19,6 @@ public class Target {
 	// -- Methods -- //
 	public void draw(Graphics g) {
 		g.setColor(this.color);
-		g.fillRect(this.x, this.y, this.size, this.size);
+		g.fillOval(this.x, this.y, this.size, this.size);
 	}
 }
