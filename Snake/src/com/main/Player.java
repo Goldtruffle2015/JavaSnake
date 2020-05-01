@@ -49,6 +49,7 @@ public class Player {
 	}
 	
 	public void update(Target t) {
+		
 		this.x += this.xVel * this.spd;
 		this.y += this.yVel * this.spd;
 		
@@ -64,6 +65,11 @@ public class Player {
 			this.y = 0;
 		} else if (y > Game.HEIGHT - this.size) {
 			this.y = Game.HEIGHT - this.size;
+		}
+		
+		// Hit Target //
+		if (this.x == t.getx() && this.y == t.gety()) {
+			bodies.add(new Body(this.color, 0, 0));	// Adds a new body at an arbitrary location
 		}
 		
 		// Update ArrayList<Body> bodies //
