@@ -43,6 +43,7 @@ public class Game extends Canvas implements Runnable {
 		player = new Player(Color.white);	// Creates a white snake
 		
 		// Initialize target
+		target = new Target(Color.white);	// Creates a white target
 	}
 	
 	public void setUpCanvas() {	// Sets the preferred dimensions of the canvas
@@ -102,6 +103,7 @@ public class Game extends Canvas implements Runnable {
 		player.draw(g);
 		
 		// Draw Target //
+		target.draw(g);
 		
 		// Dispose, ACTUALLY draw //
 		g.dispose();
@@ -109,7 +111,9 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void update() {
+		// Player //
 		
+		// Target //
 	}
 
 	public void start() {
