@@ -40,6 +40,7 @@ public class Game extends Canvas implements Runnable {
 	
 	private void initialize() {
 		// Initialize player
+		player = new Player(Color.white);	// Creates a white snake
 		
 		// Initialize target
 	}
@@ -83,10 +84,6 @@ public class Game extends Canvas implements Runnable {
 		stop();
 	}
 
-	private void stop() {
-		
-	}
-
 	private void draw() {
 		// Initialize drawing tools //
 		BufferStrategy buffer = this.getBufferStrategy();
@@ -101,7 +98,10 @@ public class Game extends Canvas implements Runnable {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
-		// Draw sprites //
+		// Draw Player //
+		player.draw(g);
+		
+		// Draw Target //
 		
 		// Dispose, ACTUALLY draw //
 		g.dispose();
@@ -113,10 +113,21 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public void start() {
-		gameThread = new Thread(this);
-		gameThread.start();
-		running = true;
+		gameThread = new Thread(this);	// Creates a new game thread
+		gameThread.start();  // Starts the game thread
+		running = true;  // Runs the game
 	}
+	
+	private void stop() {
+		try {
+			gameThread.join();
+			running = false;
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	// -- Main Method -- //
 	public static void main(String[] args) {	 
 		new Game();
