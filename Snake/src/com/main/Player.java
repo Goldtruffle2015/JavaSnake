@@ -49,10 +49,14 @@ public class Player {
 		return this.yVel;
 	}
 	
+	public ArrayList<Body> getBodies() {
+		return this.bodies;
+	}
+	
 	// -- Methods -- //
 	public void draw(Graphics g) {
-		for (int i = bodies.size() - 1; i >= 0; i--) {
-			bodies.get(i).draw(g);
+		for (int i = this.bodies.size() - 1; i >= 0; i--) {
+			this.bodies.get(i).draw(g);
 		}
 	}
 	
@@ -68,23 +72,23 @@ public class Player {
 		
 		// Hit Target //
 		if (this.x == t.getx() && this.y == t.gety()) {
-			bodies.add(new Body(this.color, 0, 0));	// Adds a new body at an arbitrary location
+			this.bodies.add(new Body(this.color, 0, 0));	// Adds a new body at an arbitrary location
 		}
 		
 		// Update ArrayList<Body> bodies //
-		for (int i = bodies.size() - 1; i >= 0; i--) {
+		for (int i = this.bodies.size() - 1; i >= 0; i--) {
 			if (i == 0) {
-				bodies.get(i).setx(this.x);
-				bodies.get(i).sety(this.y);
+				this.bodies.get(i).setx(this.x);
+				this.bodies.get(i).sety(this.y);
 			} else {
-				bodies.get(i).setx(bodies.get(i - 1).getx());
-				bodies.get(i).sety(bodies.get(i - 1).gety());
+				this.bodies.get(i).setx(this.bodies.get(i - 1).getx());
+				this.bodies.get(i).sety(this.bodies.get(i - 1).gety());
 			}
 		}
 		
 		// Check if snake hit itself //
-		for (int i = bodies.size() - 1; i > 0; i--) {
-			if (bodies.get(0).getx() == bodies.get(i).getx() && bodies.get(0).gety() == bodies.get(i).gety()) {	// If snake overlaps itself
+		for (int i = this.bodies.size() - 1; i > 0; i--) {
+			if (this.bodies.get(0).getx() == this.bodies.get(i).getx() && this.bodies.get(0).gety() == this.bodies.get(i).gety()) {	// If snake overlaps itself
 				System.exit(0);	// System terminates as placeholder
 			}
 		}
