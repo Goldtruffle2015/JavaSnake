@@ -61,7 +61,7 @@ public class Game extends Canvas implements Runnable {
 		// game timer
 		
 		long lastTime = System.nanoTime();
-		double amountOfTicks = 3.0;	// FPS
+		double amountOfTicks = 4.0;	// FPS
 		double ns = 1000000000 / amountOfTicks;	// Nanoseconds per tick to get specified FPS (60)
 		double delta = 0;	// Keeps track of the number of ticks passed
 		long timer = System.currentTimeMillis();

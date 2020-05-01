@@ -41,6 +41,14 @@ public class Player {
 		return this.y;
 	}
 	
+	public int getxVel() {
+		return this.xVel;
+	}
+	
+	public int getyVel() {
+		return this.yVel;
+	}
+	
 	// -- Methods -- //
 	public void draw(Graphics g) {
 		for (int i = bodies.size() - 1; i >= 0; i--) {
@@ -53,18 +61,9 @@ public class Player {
 		this.x += this.xVel * this.spd;
 		this.y += this.yVel * this.spd;
 		
-		// X boundaries //
-		if (this.x < 0) {
-			this.x = 0;
-		} else if (x > Game.WIDTH - this.size) {
-			this.x = Game.WIDTH - this.size;
-		}
-		
-		// Y boundaries //
-		if (this.y < 0) {
-			this.y = 0;
-		} else if (y > Game.HEIGHT - this.size) {
-			this.y = Game.HEIGHT - this.size;
+		// Boundaries //
+		if (this.x < 0 || x > Game.WIDTH - this.size || this.y < 0 || y > Game.HEIGHT - this.size) {	// When snake moves out of bounds
+			System.exit(0);	// Game ends. System terminates as placeholder
 		}
 		
 		// Hit Target //
@@ -80,6 +79,13 @@ public class Player {
 			} else {
 				bodies.get(i).setx(bodies.get(i - 1).getx());
 				bodies.get(i).sety(bodies.get(i - 1).gety());
+			}
+		}
+		
+		// Check if snake hit itself //
+		for (int i = bodies.size() - 1; i > 0; i--) {
+			if (bodies.get(0).getx() == bodies.get(i).getx() && bodies.get(0).gety() == bodies.get(i).gety()) {	// If snake overlaps itself
+				System.exit(0);	// System terminates as placeholder
 			}
 		}
 	}

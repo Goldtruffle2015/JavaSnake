@@ -13,7 +13,7 @@ public class Target {
 	public Target(Color c) {
 		this.color = c;
 		this.x = (int) ((Math.round(Math.random() * 31.0)) * 36);
-		this.y = (int) ((Math.round(Math.random() * 18.0)) * 36);
+		this.y = (int) ((Math.round(Math.random() * 17.0)) * 36);
 	}
 	
 	// -- Setter -- //
@@ -36,7 +36,7 @@ public class Target {
 	public void update(Player p) {
 		if (this.x == p.getx() && this.y == p.gety()) {	// When the snake intersects the target
 			this.x = (int) ((Math.round(Math.random() * 31.0)) * 36);	// Set random x-coordinate
-			this.y = (int) ((Math.round(Math.random() * 18.0)) * 36);	// Set random y-coordinate
+			this.y = (int) ((Math.round(Math.random() * 17.0)) * 36);	// Set random y-coordinate
 		}
 	}
 }
